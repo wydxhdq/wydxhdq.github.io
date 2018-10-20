@@ -101,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjngvdiui0002xwv5o1kmeqdm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjngxnzlx0001g8v5c3298q33" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,13 +138,19 @@
 <p>而这样子做有什么好处呢？</p>
 <p>第一，归属明晰。<br>面向对象不同于面向过程，每个属性和行为都可以根据语义化来推测它意义。<br>就例如我们在面向过程里面定义了一个height的属性，单纯从字面上看，我们无法知道这到底是什么的高度，是人的高度，还是楼层的高度，还是其他什么的高度，我们一概不清楚。但如果这个属性出现在Person这个类里面，我们就可以立即知道这个属性是用来描述一个人的身高。</p>
 <p>第二，隐藏性和安全性。<br>隐藏性说的是隐藏类的实现细节。使用者只需要知道类提供的行为（也称作方法）的功能就可以正常使用，而不需要去考虑这个功能是怎么实现的。<br>安全性说的是想要操作类的属性，只能通过该已存在的行为去操作。这样可以避免类属性被误操作改变和误使用。</p>
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>继承就是在已存在的类上定义新的类。<br>已存在的类被称为父类，新的类称为子类。<br>子类会继承父类非private的属性和方法，并且可以拓展自己的方法和属性。<br>这样做可以实现代码的复用，并且可以让代码的层级分明，利于维护。</p>
-<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>在面向对象中，接口的多种不同的实现方式即为多态。<br>多态性是允许你将父对象设置成为一个或更多的他的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作。<br>子类Child继承父类Father，我们可以编写一个指向子类的父类类型引用，该引用既可以处理父类Father对象，也可以处理子类Child对象，当相同的消息发送给子类或者父类对象时，该对象就会根据自己所属的引用而执行不同的行为，这就是多态。即多态性就是相同的消息使得不同的类做出不同的响应。</p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>继承是使用已存在的类作为父类建立子类，子类可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。</p>
+<p>这样做的优点是可以实现代码的复用，并且可以让代码的层级分明，利于维护。</p>
+<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><blockquote>
+<p>多态的实际含义是:同一操作作用于不同的对象上面，可以产生不同的解释和不同的执行结果。换句话说，给不同的对象发送同一个消息的时候，这些对象会根据这个消息分别给出不同的反馈。 ——摘自《JavaScript设计模式与开发实践》</p>
+</blockquote>
+<p>以下引用《JavaScript设计模式与开发实践》的代码举例说明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Animal &#123;</span><br><span class="line">	abstract void makeSound();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Chicken extends Animal &#123;</span><br><span class="line">	public void makeSound() &#123;</span><br><span class="line">		System.out.println(&quot;咯咯咯&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Duck extends Animal &#123;</span><br><span class="line">	public void makeSound() &#123;</span><br><span class="line">		System.out.println(&quot;嘎嘎嘎&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AnimalSound &#123;</span><br><span class="line">	public void makeSound(Animal animal) &#123;</span><br><span class="line">		animal.makeSOund();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String args[]) &#123;</span><br><span class="line">		AnimalSound animalSound = new AnimalSound;</span><br><span class="line">		Animal duck = new Duck();</span><br><span class="line">		Animal chicken = new Chicken();</span><br><span class="line">		animalSound.makeSound(duck);</span><br><span class="line">		animalSound.makeSound(chicken);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的代码我们可以知道，在调用animalSound.makeSound方法后，输出的声音是根据输入的对象来输出的。即在同一个方法里面，传入的参数类型不同，输出的结果也不同。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjngvdiu90001xwv5ldqikrhu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjngxnzm80002g8v517ou1m5m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/17/hello-world/" data-id="cjngvdiss0000xwv5iv0kzydk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/17/hello-world/" data-id="cjngxnzlm0000g8v56jxx79kz" class="article-share-link">Share</a>
       
       
     </footer>
