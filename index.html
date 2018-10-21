@@ -62,6 +62,208 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-http状态码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/21/http状态码/" class="article-date">
+  <time datetime="2018-10-21T06:55:37.000Z" itemprop="datePublished">2018-10-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/21/http状态码/">http状态码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>参考资料为《HTTP权威指南》</em></p>
+<h1 id="100"><a href="#100" class="headerlink" title="100"></a>100</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">原因短语</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">Continue</td>
+<td style="text-align:center">说明收到了请求的初始部分，请客户端继续。发送了这个状态码之后，服务器在收到请求之后必须进行响应。</td>
+</tr>
+<tr>
+<td style="text-align:center">101</td>
+<td style="text-align:center">Switching Protocols</td>
+<td style="text-align:center">说明服务器正在根据客户端的指定，将协议切换成Update首部所列的协议。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="200"><a href="#200" class="headerlink" title="200"></a>200</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">原因短语</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">ok</td>
+<td style="text-align:center">请求没问题，实体的主题部分包含了所请求的资源</td>
+</tr>
+<tr>
+<td style="text-align:center">201</td>
+<td style="text-align:center">Created</td>
+<td style="text-align:center">用于创建服务器对象的请求（比如，PUT）。响应的实体主体部分中应该包含各种引用了已创建的资源的URL，Location首部包含的则是最具体的引用。服务器必须在发送这个状态码之前创建好对象。</td>
+</tr>
+<tr>
+<td style="text-align:center">202</td>
+<td style="text-align:center">Accepted</td>
+<td style="text-align:center">请求已被接受，但服务器还未对其执行任何动作。不能保证服务器会完成这个请求；这只是意味着接受请求时，它看起来是有效的。服务器应该在实体的主体部分包含对请求状态的描述，或许还应该有对请求完成时间的估计（或者包含一个指针，指向可以获取此信息的位置）</td>
+</tr>
+<tr>
+<td style="text-align:center">203</td>
+<td style="text-align:center">Non-Authoritative</td>
+<td style="text-align:center">实体首部包含的信息不是来自于源端服务器，而是来自资源的一份副本。如果中间节点上有一份资源副本，但无法或者没有对它所发送的与资源有关的元信息（首部）进行验证，就会出现这种情况。这种响应码并不是非用不可的；如果实体首部来自源端服务器，响应为200状态的应用程序就可以将其作为一种可选项使用。</td>
+</tr>
+<tr>
+<td style="text-align:center">204</td>
+<td style="text-align:center">No Content</td>
+<td style="text-align:center">响应报文中包含若干首部和一个状态行，但没有实体的主体部分。主要用于在浏览器不转为显示新文档的情况下，对其进行更新（比如刷新一个表单页面）</td>
+</tr>
+<tr>
+<td style="text-align:center">205</td>
+<td style="text-align:center">Reset Content</td>
+<td style="text-align:center">另一个主要用于浏览器的代码。负责告知浏览器清除当前页面中的所有HTML表单元素。</td>
+</tr>
+<tr>
+<td style="text-align:center">206</td>
+<td style="text-align:center">Partial Content</td>
+<td style="text-align:center">成功执行了一个部分或Range（范围）请求。206响应中必须包含Content-Range、Date以及ETag或Content-Location首部</td>
+</tr>
+</tbody>
+</table>
+<h1 id="300"><a href="#300" class="headerlink" title="300"></a>300</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">原因短语</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">300</td>
+<td style="text-align:center">Multiple</td>
+<td style="text-align:center">客户端请求一个实际指向多个资源的URL时会返回这个状态码，比如服务器上有某个HTML文档的英语和法语版本。返回这个代码时会带有一个选项列表；这样用户就可以选择他希望使用的那一项了。</td>
+</tr>
+<tr>
+<td style="text-align:center">301</td>
+<td style="text-align:center">Moved Permanently</td>
+<td style="text-align:center">在请求的URL已被移除时使用。响应的Location首部中应该包含资源现在所处的URL。</td>
+</tr>
+<tr>
+<td style="text-align:center">302</td>
+<td style="text-align:center">Found</td>
+<td style="text-align:center">与301状态码类似；但是，客户端应该使用Location首部给出的URL来临时定位资源。将来的请求仍应使用老的URL。</td>
+</tr>
+<tr>
+<td style="text-align:center">303</td>
+<td style="text-align:center">See Other</td>
+<td style="text-align:center">告知客户端应该用另一个URL来获取资源。新的URL位于响应报文的Location首部。其主要目的是允许POST请求的响应将客户端定向到某个资源上去。</td>
+</tr>
+<tr>
+<td style="text-align:center">304</td>
+<td style="text-align:center">Not Modified</td>
+<td style="text-align:center">客户端可以通过所包含的请求首部，使其请求变成有条件的。如果客户端发起了一个条件GET请求，而最近资源未被修改的话，就可以用这个状态码来说明资源未被修改。带有这个状态码的响应不应该包含实体的主体部分。</td>
+</tr>
+<tr>
+<td style="text-align:center">305</td>
+<td style="text-align:center">Use Proxy</td>
+<td style="text-align:center">用来说明必须通过一个代理来访问资源；代理的位置由Location首部给出。很重要的一点是，客户端是相对某个特定资源来解析这条响应的，不能假定所有请求，甚至所有对持有所请求资源的服务器的请求都通过这个代理进行。如果客户端错误地让代理介入了某条请求，可能会引发破坏性的行为，而且会造成安全漏洞。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="400"><a href="#400" class="headerlink" title="400"></a>400</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">原因短语</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">400</td>
+<td style="text-align:center">Bad Request</td>
+<td style="text-align:center">用于告知客户端它发送了一个错误的请求</td>
+</tr>
+<tr>
+<td style="text-align:center">401</td>
+<td style="text-align:center">Unauthorized</td>
+<td style="text-align:center">与适当的首部一同返回，在这些首部中请求客户端在获取对资源的访问权之前，对自己进行认证。</td>
+</tr>
+<tr>
+<td style="text-align:center">403</td>
+<td style="text-align:center">Forbidden</td>
+<td style="text-align:center">用于说明请求被服务器拒绝了。如果服务器想说明为什么拒绝请求，可以包含实体的主体部分来对原因进行描述。但这个状态码通常是在服务器不想说明拒绝原因的时候使用的。</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:center">Not Found</td>
+<td style="text-align:center">用于说明服务器无法找到所请求的URL。通常会包含一个实体，以便客户端应用程序显示给用户看。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="500"><a href="#500" class="headerlink" title="500"></a>500</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">原因短语</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">500</td>
+<td style="text-align:center">Internal Server Error</td>
+<td style="text-align:center">服务器遇到一个妨碍它为请求提供服务的错误时，使用此状态码。</td>
+</tr>
+<tr>
+<td style="text-align:center">501</td>
+<td style="text-align:center">Not Implemented</td>
+<td style="text-align:center">客户端发起的请求超出服务器的能力范围（比如，使用了服务器不支持的请求方法）时，使用此状态码。</td>
+</tr>
+<tr>
+<td style="text-align:center">502</td>
+<td style="text-align:center">Bad Gateway</td>
+<td style="text-align:center">作为代理或网关使用的服务器从请求响应链的下一条链路上收到了一条伪响应（比如，它无法连接到其父网关）时，使用此状态码</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnijxbyl0005rov5alpnbar8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-三次握手，四次挥手" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/21/三次握手，四次挥手/" class="article-date">
@@ -103,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnii24hc0000vwv5tb2k85wy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnijxbxk0000rov5wjev8nid" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnii24i60003vwv5tfp8p6ma" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnijxbyb0003rov55v2jkjh7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -188,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnii24i20002vwv5ezfqkgk0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnijxbxx0001rov5xbv72jc6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +439,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnii24ia0004vwv5707ozpb7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnijxbye0004rov572wg0duj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnii24hq0001vwv56lyehe2b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnijxby70002rov597gs5val" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,6 +528,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/21/http状态码/">http状态码</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/21/三次握手，四次挥手/">三次握手，四次挥手</a>
           </li>
         
@@ -339,10 +545,6 @@
         
           <li>
             <a href="/2018/10/20/盒子模型/">盒子模型</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/18/封装，继承，多态/">封装，继承，多态</a>
           </li>
         
       </ul>
