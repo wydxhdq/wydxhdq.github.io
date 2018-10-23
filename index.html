@@ -86,12 +86,12 @@
       
         <h1 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h1><p>防抖的大致思路就是用户越频繁触发就越延迟发生作用，例如对输入框的输入内容进行检查，在用户连续输入的时候就一直延迟触发检查，等用户结束输入后才触发一次检查。我们可以利用计时器来实现我们想要的效果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function fangdou (method, delay) &#123;</span><br><span class="line">	let timer;</span><br><span class="line">	return function () &#123;</span><br><span class="line">		if (timer) &#123;</span><br><span class="line">			clearTimerout(timer);</span><br><span class="line">		&#125;</span><br><span class="line">		timer = setTimeout(method, delay);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h1><p>节流的大致思路就是用户无论触发多少次，在一定时间段内只执行一次。</p>
+<h1 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h1><p>节流的大致思路就是用户无论触发多少次，在一定时间内只执行一次。就像下拉刷新，在一定时间内无论滚动条下拉多少次，都只触发一次数据请求。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function jieliu (method, delay) &#123;</span><br><span class="line">	let start = false;</span><br><span class="line">	return function () &#123;</span><br><span class="line">		if (start) &#123;</span><br><span class="line">			return;</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			start = true;</span><br><span class="line">			setTimeout(function () &#123;</span><br><span class="line">				method();</span><br><span class="line">				start = false;</span><br><span class="line">			&#125;, delay);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnl3webd0004ikv5897ana3o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnl3yfrh0006vgv5xv9rccxu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -293,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnl3wea50000ikv5mi4h6ma5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnl3yfqe0000vgv5475wy272" class="article-share-link">Share</a>
       
       
     </footer>
@@ -344,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnl3weam0001ikv5d48daooa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnl3yfqq0001vgv5nu1499xg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnl3webo0005ikv5ex4g08en" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnl3yfr60004vgv571wwo6lx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -429,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnl3web20002ikv5l10lgsih" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnl3yfr30003vgv5pfm7b147" class="article-share-link">Share</a>
       
       
     </footer>
@@ -478,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnl3webv0006ikv5fbn03feo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnl3yfrf0005vgv5xtt79250" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnl3web70003ikv5hyxdap2d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnl3yfr00002vgv57s4fq8xk" class="article-share-link">Share</a>
       
       
     </footer>
