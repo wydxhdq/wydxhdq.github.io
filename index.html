@@ -62,6 +62,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-BFC-块级格式化上下文" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/23/BFC-块级格式化上下文/" class="article-date">
+  <time datetime="2018-10-23T02:40:16.000Z" itemprop="datePublished">2018-10-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/23/BFC-块级格式化上下文/">BFC 块级格式化上下文</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="布局规则："><a href="#布局规则：" class="headerlink" title="布局规则："></a>布局规则：</h1><p>1.内部的Box会在垂直方向，一个接一个地放置。<br>2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。<br>3.每个元素的margin box左边，与包含块border box的左边相接触（对于从左到右的格式化，否则相反）。即使存在浮动也是如此。<br>4.BFC的区域不会与float box重叠。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br>6.计算BFC的高度时，浮动元素也参与计算。</p>
+<h1 id="哪些元素会生成BFC："><a href="#哪些元素会生成BFC：" class="headerlink" title="哪些元素会生成BFC："></a>哪些元素会生成BFC：</h1><p>1.float属性不为none<br>2.position为absolute或fixed<br>3.display为inline-block，table-cell，table-caption，flex，inline-flex<br>4.overflow不为visible</p>
+<h1 id="作用以及原理"><a href="#作用以及原理" class="headerlink" title="作用以及原理"></a>作用以及原理</h1><p>1.自适应两栏布局<br>规则：3,4<br>2.清除内部浮动<br>规则：6<br>3.防止垂直margin重叠<br>规则：2</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjnl4qx1t000024v51twcpx98" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-防抖和节流" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/23/防抖和节流/" class="article-date">
@@ -91,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnl3yfrh0006vgv5xv9rccxu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnl4qx4e000724v5kiibmkho" class="article-share-link">Share</a>
       
       
     </footer>
@@ -293,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnl3yfqe0000vgv5475wy272" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnl4qx2i000124v519769ns3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -344,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnl3yfqq0001vgv5nu1499xg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnl4qx33000224v5ius6bk6i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnl3yfr60004vgv571wwo6lx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnl4qx40000524v5672ymw9a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -429,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnl3yfr30003vgv5pfm7b147" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnl4qx3c000424v5vtsh7snj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -478,7 +517,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnl3yfrf0005vgv5xtt79250" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnl4qx44000624v5wr7n9jxp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnl3yfr00002vgv57s4fq8xk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnl4qx36000324v5jzyw85cz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -567,6 +606,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/23/BFC-块级格式化上下文/">BFC 块级格式化上下文</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/23/防抖和节流/">防抖和节流</a>
           </li>
         
@@ -580,10 +623,6 @@
         
           <li>
             <a href="/2018/10/20/浏览器中输入URL到返回页面的全过程/">浏览器中输入URL到返回页面的全过程</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/20/工厂模式/">工厂模式</a>
           </li>
         
       </ul>
