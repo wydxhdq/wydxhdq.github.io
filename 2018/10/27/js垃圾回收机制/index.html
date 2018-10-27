@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js垃圾回收机制 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="垃圾收集器是按照固定的时间间隔或代码执行中预定的收集时间周期性地执行，但IE的垃圾收集器是根据内存分配量运行的。 标记清除（常用）主要思路：当变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。而在变量离开环境（函数执行完毕）时，则将其标记为“离开环境”。 让我举一个例子：123456function test() &amp;#123;	var i = 0;	alert(i);&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js垃圾回收机制">
+<meta property="og:url" content="http://yoursite.com/2018/10/27/js垃圾回收机制/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="垃圾收集器是按照固定的时间间隔或代码执行中预定的收集时间周期性地执行，但IE的垃圾收集器是根据内存分配量运行的。 标记清除（常用）主要思路：当变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。而在变量离开环境（函数执行完毕）时，则将其标记为“离开环境”。 让我举一个例子：123456function test() &amp;#123;	var i = 0;	alert(i);&amp;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-27T12:25:39.340Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js垃圾回收机制">
+<meta name="twitter:description" content="垃圾收集器是按照固定的时间间隔或代码执行中预定的收集时间周期性地执行，但IE的垃圾收集器是根据内存分配量运行的。 标记清除（常用）主要思路：当变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。而在变量离开环境（函数执行完毕）时，则将其标记为“离开环境”。 让我举一个例子：123456function test() &amp;#123;	var i = 0;	alert(i);&amp;">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js垃圾回收机制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/27/js垃圾回收机制/" class="article-date">
+  <time datetime="2018-10-27T10:07:03.000Z" itemprop="datePublished">2018-10-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js垃圾回收机制
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>垃圾收集器是按照固定的时间间隔或代码执行中预定的收集时间周期性地执行，但IE的垃圾收集器是根据内存分配量运行的。</p>
+<h1 id="标记清除（常用）"><a href="#标记清除（常用）" class="headerlink" title="标记清除（常用）"></a>标记清除（常用）</h1><p><em>主要思路</em>：当变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。而在变量离开环境（函数执行完毕）时，则将其标记为“离开环境”。</p>
+<p>让我举一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function test() &#123;</span><br><span class="line">	var i = 0;</span><br><span class="line">	alert(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，当我们调用test函数的时候会声明一个i变量，在这个时候，i变量就<em>进入环境</em>，不会被垃圾收集器清除内存。而当我们执行完alert函数，test()函数就完全执行完毕，在这个时候，i变量就<em>离开环境</em>，在下一次的垃圾收集中会被清除内存，即回收它们所占用的内存空间。</p>
+<p>如果对进入环境和离开环境还是不了解的同学，可以了解一下js的执行环境及作用域。</p>
+<h1 id="引用计数（基本废弃）"><a href="#引用计数（基本废弃）" class="headerlink" title="引用计数（基本废弃）"></a>引用计数（基本废弃）</h1><p>目前JavaScript引擎都不再使用这种算法；但在IE中访问非原生JavaScript对象（如DOM元素）时，这种算法仍然可能会导致问题。</p>
+<p><em>主要思路</em>：当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。如果同一个值又被赋给另一个变量，则该值的引用次数加1。相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减1。当这个值的引用次数变成0时，则说明没有办法再访问这个值了，因而就可以将其占用的内存空间回收回来。</p>
+<p>但这个方法存在严重缺陷，就是当循环利用时，引用次数永远不会为0。请看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function problem () &#123;</span><br><span class="line">	var objectA = new Object();</span><br><span class="line">	var objectB = new Object();</span><br><span class="line"></span><br><span class="line">	objectA.someOtherObject = objectB;</span><br><span class="line">	objectB.anotherObject = objectA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码里，objectA和objectB通过各自的属性相互引用。这将导致在函数执行完毕后，objectA和objectB还将继续存在，因为它们的引用次数永远不会是0。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjnrf5x4y0001mgv5d1ixoq7p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/23/BFC-块级格式化上下文/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BFC 块级格式化上下文</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/27/js垃圾回收机制/">js垃圾回收机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/23/BFC-块级格式化上下文/">BFC 块级格式化上下文</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/23/防抖和节流/">防抖和节流</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/21/http状态码/">http状态码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/21/三次握手，四次挥手/">三次握手，四次挥手</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
