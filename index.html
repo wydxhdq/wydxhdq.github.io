@@ -62,6 +62,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-跨域" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/28/跨域/" class="article-date">
+  <time datetime="2018-10-28T08:02:55.000Z" itemprop="datePublished">2018-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/28/跨域/">跨域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为，但是，实现合理的跨域请求对开发某些浏览器应用程序也是至关重要的。</p>
+<h1 id="CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）"><a href="#CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）" class="headerlink" title="CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）"></a>CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）</h1><p><em>基本思想</em>：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是应该失败。</p>
+<p>比如一个简单的使用GET或POST发送的请求，它没有自定义的头部，而主体内容是text/plain。在发送该请求时，需要给它附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口），以便服务器根据这个头部信息来决定是否给予响应。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Origin: http://www.nczonline.net</span><br></pre></td></tr></table></figure></p>
+<p>如果服务器认为这个请求可以接受，就在Access-Control-Allow-Origin头部中回发相同的源信息（如果是公共资源，可以回发“*”）。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http://www.nczonline.net</span><br></pre></td></tr></table></figure></p>
+<p>如果没有这个头部，或者有这个头部但源信息不匹配，浏览器会驳回请求。正常情况下，浏览器会处理请求。注意，请求和响应都不包含cookie信息。</p>
+<h3 id="带凭据的请求"><a href="#带凭据的请求" class="headerlink" title="带凭据的请求"></a>带凭据的请求</h3><p>默认情况下，跨源请求不提供凭据（cookie、HTTP认证及客户端SSL证明等）。通过将<em>withCredentials</em>属性设置为true，可以指定某个请求应该发送凭据。如果服务器接受带凭据的请求，会用下面的HTTP头部来响应。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials: true</span><br></pre></td></tr></table></figure></p>
+<p>如果发送的是带凭据的请求，但服务器的响应没有包含这个头部，那么浏览器就不会把响应交给JavaScript，于是，responseText中将是空字符串，status的值为0，而且会调用onerror()事件处理程序。</p>
+<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSONP是JSON with padding（填充式JSON或参数式JSON）的简写。</p>
+<p>JSONP是通过动态<script>元素来使用的，使用时可以为src属性指定一个跨域URL。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function dosomething(response) &#123;</span><br><span class="line">	//处理获取的json数据 </span><br><span class="line">&#125;</span><br><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">script.src = &quot;http://example.com/data.php?callback=dosomething&quot;;</span><br><span class="line">document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
+<p>后台在接收到jsonp请求后，会将json数据传入到dosomething函数里面。<br>注意，JSONP方法只支持get方法，不支持post请求。</p>
+</script></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjnsnncam000784v5qshsftce" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js实现快速排序" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/28/js实现快速排序/" class="article-date">
@@ -89,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/js实现快速排序/" data-id="cjnskz30h00020gv5oom557mr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/js实现快速排序/" data-id="cjnsnnc83000384v5a8mejnzd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjnskz2zh00010gv5ztlrrz52" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjnsnnc7o000284v5mzb4lxvw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -174,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjnskz2yi00000gv5mypinkyj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjnsnnc54000084v5ehn26e5p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnskz33k00090gv5j2lc991m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnsnncby000a84v5x6ne9aoy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -415,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnskz31500030gv510xtjq6y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnsnnc69000184v5di63szsb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -466,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnskz31j00040gv5ek8ghky8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnsnnc9u000584v5pbne9ase" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +554,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnskz33800080gv5d19jh1jc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnsnncbd000984v5czj5pn9k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +598,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnskz32w00060gv5nknaw1gu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnsnnca4000684v5kid651am" class="article-share-link">Share</a>
       
       
     </footer>
@@ -600,56 +647,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnskz32z00070gv561v8slx5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-封装，继承，多态" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/18/封装，继承，多态/" class="article-date">
-  <time datetime="2018-10-18T10:41:40.000Z" itemprop="datePublished">2018-10-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/18/封装，继承，多态/">封装，继承，多态</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在面试的时候有遇到被问到封装，继承，多态的问题。<br>现在写个博客来记录一下。</p>
-<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><p>在面向对象的思想里面，万物皆是对象，而只要是对象就会存在属性和行为。<br>例如以人类为一个对象，我们可以获得身高，体重，年龄等属性，也可以获得说话，行走，聆听等行为。<br>封装就是将这些属性和行为封装到一个类里面。</p>
-<p>而这样子做有什么好处呢？</p>
-<p>第一，归属明晰。<br>面向对象不同于面向过程，每个属性和行为都可以根据语义化来推测它意义。<br>就例如我们在面向过程里面定义了一个height的属性，单纯从字面上看，我们无法知道这到底是什么的高度，是人的高度，还是楼层的高度，还是其他什么的高度，我们一概不清楚。但如果这个属性出现在Person这个类里面，我们就可以立即知道这个属性是用来描述一个人的身高。</p>
-<p>第二，隐藏性和安全性。<br>隐藏性说的是隐藏类的实现细节。使用者只需要知道类提供的行为（也称作方法）的功能就可以正常使用，而不需要去考虑这个功能是怎么实现的。<br>安全性说的是想要操作类的属性，只能通过该已存在的行为去操作。这样可以避免类属性被误操作改变和误使用。</p>
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>继承是使用已存在的类作为父类建立子类，子类可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。</p>
-<p>这样做的优点是可以实现代码的复用，并且可以让代码的层级分明，利于维护。</p>
-<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><blockquote>
-<p>多态的实际含义是:同一操作作用于不同的对象上面，可以产生不同的解释和不同的执行结果。换句话说，给不同的对象发送同一个消息的时候，这些对象会根据这个消息分别给出不同的反馈。 ——摘自《JavaScript设计模式与开发实践》</p>
-</blockquote>
-<p>以下引用《JavaScript设计模式与开发实践》的代码举例说明。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Animal &#123;</span><br><span class="line">	abstract void makeSound();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Chicken extends Animal &#123;</span><br><span class="line">	public void makeSound() &#123;</span><br><span class="line">		System.out.println(&quot;咯咯咯&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Duck extends Animal &#123;</span><br><span class="line">	public void makeSound() &#123;</span><br><span class="line">		System.out.println(&quot;嘎嘎嘎&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AnimalSound &#123;</span><br><span class="line">	public void makeSound(Animal animal) &#123;</span><br><span class="line">		animal.makeSOund();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String args[]) &#123;</span><br><span class="line">		AnimalSound animalSound = new AnimalSound;</span><br><span class="line">		Animal duck = new Duck();</span><br><span class="line">		Animal chicken = new Chicken();</span><br><span class="line">		animalSound.makeSound(duck);</span><br><span class="line">		animalSound.makeSound(chicken);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过上面的代码我们可以知道，在调用animalSound.makeSound方法后，输出的声音是根据输入的对象来输出的。即在同一个方法里面，传入的参数类型不同，输出的结果也不同。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnskz32m00050gv5bwxd2xn8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnsnncau000884v5zekli2h2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -660,6 +658,10 @@
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -689,6 +691,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/28/跨域/">跨域</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/28/js实现快速排序/">js实现快速排序</a>
           </li>
         
@@ -702,10 +708,6 @@
         
           <li>
             <a href="/2018/10/23/防抖和节流/">防抖和节流</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/21/http状态码/">http状态码</a>
           </li>
         
       </ul>

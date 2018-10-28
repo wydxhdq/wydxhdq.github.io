@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>跨域 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为，但是，实现合理的跨域请求对开发某些浏览器应用程序也是至关重要的。 CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域">
+<meta property="og:url" content="http://yoursite.com/2018/10/28/跨域/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为，但是，实现合理的跨域请求对开发某些浏览器应用程序也是至关重要的。 CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-28T09:00:29.063Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="跨域">
+<meta name="twitter:description" content="通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为，但是，实现合理的跨域请求对开发某些浏览器应用程序也是至关重要的。 CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-跨域" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/28/跨域/" class="article-date">
+  <time datetime="2018-10-28T08:02:55.000Z" itemprop="datePublished">2018-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      跨域
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为，但是，实现合理的跨域请求对开发某些浏览器应用程序也是至关重要的。</p>
+<h1 id="CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）"><a href="#CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）" class="headerlink" title="CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）"></a>CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）</h1><p><em>基本思想</em>：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是应该失败。</p>
+<p>比如一个简单的使用GET或POST发送的请求，它没有自定义的头部，而主体内容是text/plain。在发送该请求时，需要给它附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口），以便服务器根据这个头部信息来决定是否给予响应。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Origin: http://www.nczonline.net</span><br></pre></td></tr></table></figure></p>
+<p>如果服务器认为这个请求可以接受，就在Access-Control-Allow-Origin头部中回发相同的源信息（如果是公共资源，可以回发“*”）。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http://www.nczonline.net</span><br></pre></td></tr></table></figure></p>
+<p>如果没有这个头部，或者有这个头部但源信息不匹配，浏览器会驳回请求。正常情况下，浏览器会处理请求。注意，请求和响应都不包含cookie信息。</p>
+<h3 id="带凭据的请求"><a href="#带凭据的请求" class="headerlink" title="带凭据的请求"></a>带凭据的请求</h3><p>默认情况下，跨源请求不提供凭据（cookie、HTTP认证及客户端SSL证明等）。通过将<em>withCredentials</em>属性设置为true，可以指定某个请求应该发送凭据。如果服务器接受带凭据的请求，会用下面的HTTP头部来响应。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials: true</span><br></pre></td></tr></table></figure></p>
+<p>如果发送的是带凭据的请求，但服务器的响应没有包含这个头部，那么浏览器就不会把响应交给JavaScript，于是，responseText中将是空字符串，status的值为0，而且会调用onerror()事件处理程序。</p>
+<h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSONP是JSON with padding（填充式JSON或参数式JSON）的简写。</p>
+<p>JSONP是通过动态<script>元素来使用的，使用时可以为src属性指定一个跨域URL。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function dosomething(response) &#123;</span><br><span class="line">	//处理获取的json数据 </span><br><span class="line">&#125;</span><br><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">script.src = &quot;http://example.com/data.php?callback=dosomething&quot;;</span><br><span class="line">document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
+<p>后台在接收到jsonp请求后，会将json数据传入到dosomething函数里面。<br>注意，JSONP方法只支持get方法，不支持post请求。</p>
+</script></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjnsnncam000784v5qshsftce" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/28/js实现快速排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js实现快速排序</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/28/跨域/">跨域</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/28/js实现快速排序/">js实现快速排序</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/27/js垃圾回收机制/">js垃圾回收机制</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/23/BFC-块级格式化上下文/">BFC 块级格式化上下文</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/23/防抖和节流/">防抖和节流</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
