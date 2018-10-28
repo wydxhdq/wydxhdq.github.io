@@ -62,6 +62,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js实现快速排序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/28/js实现快速排序/" class="article-date">
+  <time datetime="2018-10-28T07:38:15.000Z" itemprop="datePublished">2018-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/28/js实现快速排序/">js实现快速排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>实现思路</em>：<br>1.首先选取传入的数组arr的第一位为参考元素，进行第一次快速排序。<br>2.快速排序：左右同时开始检索，直到参考元素左边均是小于参考元素的数值和右边均是大于参考元素的数值，返回参考元素当前的位置。<br>3.以参考元素的位置为中心将数组划分为左右两个部分，并对这两个部分进行2步骤。<br>4.当划分的数组只有一个元素的时候，则快速排序结束。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function quick_sort (arr) &#123;</span><br><span class="line">	let sort = function (arr, i, j) &#123;</span><br><span class="line">		let temp = arr[i];</span><br><span class="line">		while (i &lt; j) &#123;</span><br><span class="line">			while (arr[j] &gt;= temp &amp;&amp; j &gt; i) &#123;</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			if (j &gt; i) &#123;</span><br><span class="line">				arr[i++] = arr[j];</span><br><span class="line">			&#125;</span><br><span class="line">			while (arr[i] &lt;= temp &amp;&amp; i &lt; j) &#123;</span><br><span class="line">				i++;</span><br><span class="line">			&#125;</span><br><span class="line">			if (i &lt; j) &#123;</span><br><span class="line">				arr[j--] = arr[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		arr[i] = temp;</span><br><span class="line">		return i;</span><br><span class="line">	&#125;</span><br><span class="line">	let before_sort = function (arr, i, j) &#123;</span><br><span class="line">		if (i &lt; j) &#123;</span><br><span class="line">			let k = sort(arr, i, j);</span><br><span class="line">			before_sort(arr, i, k - 1);</span><br><span class="line">			before_sort(arr, k + 1, j);			</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	before_sort(arr, 0, arr.length - 1);</span><br><span class="line">	return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/28/js实现快速排序/" data-id="cjnskz30h00020gv5oom557mr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js垃圾回收机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/27/js垃圾回收机制/" class="article-date">
@@ -98,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjnrf5x4y0001mgv5d1ixoq7p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjnskz2zh00010gv5ztlrrz52" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjnrf5x2t0000mgv5i4g214kr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjnskz2yi00000gv5mypinkyj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnrf5x9u0008mgv5be1e4d24" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnskz33k00090gv5j2lc991m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -378,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnrf5x6g0002mgv594viqzq2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnskz31500030gv510xtjq6y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -429,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnrf5x6v0003mgv5ngk2bxmd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnskz31j00040gv5ek8ghky8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -470,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnrf5x8q0006mgv5cx4zm6gt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnskz33800080gv5d19jh1jc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -514,7 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnrf5x8f0005mgv5czbgxoeh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnskz32w00060gv5nknaw1gu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -563,7 +600,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnrf5x9i0007mgv5fjbzvzq3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnskz32z00070gv561v8slx5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -612,7 +649,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnrf5x7c0004mgv5cm3rd6ry" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/封装，继承，多态/" data-id="cjnskz32m00050gv5bwxd2xn8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -652,6 +689,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/28/js实现快速排序/">js实现快速排序</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/27/js垃圾回收机制/">js垃圾回收机制</a>
           </li>
         
@@ -665,10 +706,6 @@
         
           <li>
             <a href="/2018/10/21/http状态码/">http状态码</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/21/三次握手，四次挥手/">三次握手，四次挥手</a>
           </li>
         
       </ul>
