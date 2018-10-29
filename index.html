@@ -93,13 +93,14 @@
 <h3 id="带凭据的请求"><a href="#带凭据的请求" class="headerlink" title="带凭据的请求"></a>带凭据的请求</h3><p>默认情况下，跨源请求不提供凭据（cookie、HTTP认证及客户端SSL证明等）。通过将<em>withCredentials</em>属性设置为true，可以指定某个请求应该发送凭据。如果服务器接受带凭据的请求，会用下面的HTTP头部来响应。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials: true</span><br></pre></td></tr></table></figure></p>
 <p>如果发送的是带凭据的请求，但服务器的响应没有包含这个头部，那么浏览器就不会把响应交给JavaScript，于是，responseText中将是空字符串，status的值为0，而且会调用onerror()事件处理程序。</p>
 <h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSONP是JSON with padding（填充式JSON或参数式JSON）的简写。</p>
-<p>JSONP是通过动态<script>元素来使用的，使用时可以为src属性指定一个跨域URL。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function dosomething(response) &#123;</span><br><span class="line">	//处理获取的json数据 </span><br><span class="line">&#125;</span><br><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">script.src = &quot;http://example.com/data.php?callback=dosomething&quot;;</span><br><span class="line">document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
-<p>后台在接收到jsonp请求后，会将json数据传入到dosomething函数里面。<br>注意，JSONP方法只支持get方法，不支持post请求。</p>
-</script></p>
+<p>JSONP是通过动态script元素来使用的，使用时可以为src属性指定一个跨域URL。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function dosomething(response) &#123;</span><br><span class="line">	//处理获取的json数据 </span><br><span class="line">&#125;</span><br><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">script.src = &quot;http://example.com/data.php?callback=dosomething&quot;;</span><br><span class="line">document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
+<p>后台在接收到jsonp请求后，会将json数据传入到dosomething函数里面，然后返回到请求页面。</p>
+<p>注意，JSONP方法只支持get方法，不支持post请求。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjnsnncam000784v5qshsftce" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjntot6v6000734v51i9wpln0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -136,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/js实现快速排序/" data-id="cjnsnnc83000384v5a8mejnzd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/js实现快速排序/" data-id="cjntot6th000234v5a503oe3w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjnsnnc7o000284v5mzb4lxvw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjntot6v2000634v5x80gn883" class="article-share-link">Share</a>
       
       
     </footer>
@@ -221,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjnsnnc54000084v5ehn26e5p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjntot6t3000134v5pbcdzej1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjnsnncby000a84v5x6ne9aoy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjntot6vw000a34v5o9w39d89" class="article-share-link">Share</a>
       
       
     </footer>
@@ -462,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjnsnnc69000184v5di63szsb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjntot6sr000034v5nyyxoit1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -513,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjnsnnc9u000584v5pbne9ase" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjntot6u4000334v55ck6slf3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -554,7 +555,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjnsnncbd000984v5czj5pn9k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjntot6v9000834v5vq3n2bct" class="article-share-link">Share</a>
       
       
     </footer>
@@ -598,7 +599,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjnsnnca4000684v5kid651am" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjntot6ur000534v5qfwvbkn5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -647,7 +648,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjnsnncau000884v5zekli2h2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/盒子模型/" data-id="cjntot6vg000934v520zyws2x" class="article-share-link">Share</a>
       
       
     </footer>

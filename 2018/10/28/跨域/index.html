@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为，但是，实现合理的跨域请求对开发某些浏览器应用程序也是至关重要的。 CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-28T09:00:29.063Z">
+<meta property="og:updated_time" content="2018-10-29T02:29:59.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域">
 <meta name="twitter:description" content="通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以预防某些恶意行为，但是，实现合理的跨域请求对开发某些浏览器应用程序也是至关重要的。 CORS（Cross-Origin-Resource-Sharing，跨域源资源共享）基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成">
@@ -95,13 +95,14 @@
 <h3 id="带凭据的请求"><a href="#带凭据的请求" class="headerlink" title="带凭据的请求"></a>带凭据的请求</h3><p>默认情况下，跨源请求不提供凭据（cookie、HTTP认证及客户端SSL证明等）。通过将<em>withCredentials</em>属性设置为true，可以指定某个请求应该发送凭据。如果服务器接受带凭据的请求，会用下面的HTTP头部来响应。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials: true</span><br></pre></td></tr></table></figure></p>
 <p>如果发送的是带凭据的请求，但服务器的响应没有包含这个头部，那么浏览器就不会把响应交给JavaScript，于是，responseText中将是空字符串，status的值为0，而且会调用onerror()事件处理程序。</p>
 <h1 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h1><p>JSONP是JSON with padding（填充式JSON或参数式JSON）的简写。</p>
-<p>JSONP是通过动态<script>元素来使用的，使用时可以为src属性指定一个跨域URL。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function dosomething(response) &#123;</span><br><span class="line">	//处理获取的json数据 </span><br><span class="line">&#125;</span><br><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">script.src = &quot;http://example.com/data.php?callback=dosomething&quot;;</span><br><span class="line">document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
-<p>后台在接收到jsonp请求后，会将json数据传入到dosomething函数里面。<br>注意，JSONP方法只支持get方法，不支持post请求。</p>
-</script></p>
+<p>JSONP是通过动态script元素来使用的，使用时可以为src属性指定一个跨域URL。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function dosomething(response) &#123;</span><br><span class="line">	//处理获取的json数据 </span><br><span class="line">&#125;</span><br><span class="line">var script = document.createElement(&quot;script&quot;);</span><br><span class="line">script.src = &quot;http://example.com/data.php?callback=dosomething&quot;;</span><br><span class="line">document.body.insertBefore(script, document.body.firstChild);</span><br></pre></td></tr></table></figure></p>
+<p>后台在接收到jsonp请求后，会将json数据传入到dosomething函数里面，然后返回到请求页面。</p>
+<p>注意，JSONP方法只支持get方法，不支持post请求。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjnsnncam000784v5qshsftce" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjntot6v6000734v51i9wpln0" class="article-share-link">Share</a>
       
       
     </footer>
