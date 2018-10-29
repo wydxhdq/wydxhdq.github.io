@@ -62,6 +62,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-判断Array类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/29/判断Array类型/" class="article-date">
+  <time datetime="2018-10-29T02:44:17.000Z" itemprop="datePublished">2018-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/29/判断Array类型/">判断Array类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.利用Array自带的函数，isArray。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (Array.isArray(value)) &#123;</span><br><span class="line">	//对数组进行某些操作</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>缺点</em>：不是所有浏览器都支持该方法、</p>
+<p>2.利用instanceof。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (value instanceof Array) &#123;</span><br><span class="line">	//对数组进行某些操作</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>缺点</em>：instanceof是在只有一个全局执行环境的情况下使用。如果网页中包含多个框架(一个页面包含多个frame)，那实际上就存在两个以上不同的全局执行环境，从而存在两个以上不同版本的Array构造函数。如果你从一个框架向另一个框架传入一个数组，那么传入的数组与第二个框架中原生创建的数组分别具有各自不同的构造函数。</p>
+<p>3.调用Object原生的toString（）方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isArray(value) &#123;</span><br><span class="line">	return Object.prototype.toString.call(value) == &quot;[object Array]&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/29/判断Array类型/" data-id="cjntq6qgr000630v5j7sqmccp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js-typeof" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/29/js-typeof/" class="article-date">
@@ -93,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/29/js-typeof/" data-id="cjntp7w7s0002gsv5pebn2y3m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/js-typeof/" data-id="cjntq6qdj000230v5rveod6sy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjntp7wbt000agsv5r1h8x9p4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/跨域/" data-id="cjntq6qje000b30v5ybf51277" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/js实现快速排序/" data-id="cjntp7w8w0004gsv5c1hjk9rm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/28/js实现快速排序/" data-id="cjntq6qet000430v55u4r4m9v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -224,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjntp7w8f0003gsv5r9ed5439" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/27/js垃圾回收机制/" data-id="cjntq6qe1000330v5kkqf38wb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjntp7w5k0000gsv52ev3a8ze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjntq6qc2000130v5ko1fgkyj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -302,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjntp7wcb000bgsv53fb9cwej" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/23/防抖和节流/" data-id="cjntq6qjl000c30v5x4di6gns" class="article-share-link">Share</a>
       
       
     </footer>
@@ -504,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjntp7w6k0001gsv5phnzpq2v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/http状态码/" data-id="cjntq6qa4000030v5cfjphr0p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -555,7 +596,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjntp7w9y0005gsv580u95dq4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/三次握手，四次挥手/" data-id="cjntq6qfw000530v5tdjawz1h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -596,51 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjntp7wb10008gsv549hqsgy9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/20/工厂模式/" class="article-date">
-  <time datetime="2018-10-20T05:39:23.000Z" itemprop="datePublished">2018-10-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/20/工厂模式/">工厂模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>本文参考资料为《Javascript高级程序设计（第三版）》</p>
-</blockquote>
-<p>工厂模式抽象了创建具体对象的过程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function createPerson (name, age, job) &#123;</span><br><span class="line">  var o = new Object();</span><br><span class="line">  o.name = name;</span><br><span class="line">  o.age = age;</span><br><span class="line">  o.job = job;</span><br><span class="line">  o.sayName = function () &#123;</span><br><span class="line">    alert(this.name);</span><br><span class="line">  &#125;</span><br><span class="line">  return o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>每次调用createPerson对象都会根据传入的参数构造一个新的对象并且返回该对象，就像通过工厂的流水线生产模型一样的产品一样。</p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>减少冗余代码。</p>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>1.没有办法知道对象的类型。<br>2.o.sayName这个对于所有产品来说都一样的方法重复创建，显得多余。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/工厂模式/" data-id="cjntp7wai0007gsv5hhqdnxzd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/浏览器中输入URL到返回页面的全过程/" data-id="cjntq6qif000930v5psfz8pcc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -684,6 +681,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/29/判断Array类型/">判断Array类型</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/29/js-typeof/">js typeof</a>
           </li>
         
@@ -697,10 +698,6 @@
         
           <li>
             <a href="/2018/10/27/js垃圾回收机制/">js垃圾回收机制</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/23/BFC-块级格式化上下文/">BFC 块级格式化上下文</a>
           </li>
         
       </ul>
