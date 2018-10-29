@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>BFC 块级格式化上下文 | Hexo</title>
+  <title>js typeof | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="布局规则：1.内部的Box会在垂直方向，一个接一个地放置。2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。3.每个元素的margin box左边，与包含块border box的左边相接触（对于从左到右的格式化，否则相反）。即使存在浮动也是如此。4.BFC的区域不会与float box重叠。5.BFC就是页面上的一个隔离的独立容器，容器里面的子元">
+  <meta name="description" content="在js里面，想要判断一些简单数据的类型，可以使用typeof。 12345678910111213let str = &amp;quot;123&amp;quot;;let num = 123;let bool = true;let unde;let obj = null;function fn () &amp;#123;&amp;#125;;console.log(str); //stringconsole.log(num);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BFC 块级格式化上下文">
-<meta property="og:url" content="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/index.html">
+<meta property="og:title" content="js typeof">
+<meta property="og:url" content="http://yoursite.com/2018/10/29/js-typeof/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="布局规则：1.内部的Box会在垂直方向，一个接一个地放置。2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。3.每个元素的margin box左边，与包含块border box的左边相接触（对于从左到右的格式化，否则相反）。即使存在浮动也是如此。4.BFC的区域不会与float box重叠。5.BFC就是页面上的一个隔离的独立容器，容器里面的子元">
+<meta property="og:description" content="在js里面，想要判断一些简单数据的类型，可以使用typeof。 12345678910111213let str = &amp;quot;123&amp;quot;;let num = 123;let bool = true;let unde;let obj = null;function fn () &amp;#123;&amp;#125;;console.log(str); //stringconsole.log(num);">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-23T02:47:34.788Z">
+<meta property="og:updated_time" content="2018-10-29T02:42:54.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BFC 块级格式化上下文">
-<meta name="twitter:description" content="布局规则：1.内部的Box会在垂直方向，一个接一个地放置。2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。3.每个元素的margin box左边，与包含块border box的左边相接触（对于从左到右的格式化，否则相反）。即使存在浮动也是如此。4.BFC的区域不会与float box重叠。5.BFC就是页面上的一个隔离的独立容器，容器里面的子元">
+<meta name="twitter:title" content="js typeof">
+<meta name="twitter:description" content="在js里面，想要判断一些简单数据的类型，可以使用typeof。 12345678910111213let str = &amp;quot;123&amp;quot;;let num = 123;let bool = true;let unde;let obj = null;function fn () &amp;#123;&amp;#125;;console.log(str); //stringconsole.log(num);">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-BFC-块级格式化上下文" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-js-typeof" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/10/23/BFC-块级格式化上下文/" class="article-date">
-  <time datetime="2018-10-23T02:40:16.000Z" itemprop="datePublished">2018-10-23</time>
+    <a href="/2018/10/29/js-typeof/" class="article-date">
+  <time datetime="2018-10-29T02:35:44.000Z" itemprop="datePublished">2018-10-29</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      BFC 块级格式化上下文
+      js typeof
     </h1>
   
 
@@ -86,14 +86,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="布局规则："><a href="#布局规则：" class="headerlink" title="布局规则："></a>布局规则：</h1><p>1.内部的Box会在垂直方向，一个接一个地放置。<br>2.Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。<br>3.每个元素的margin box左边，与包含块border box的左边相接触（对于从左到右的格式化，否则相反）。即使存在浮动也是如此。<br>4.BFC的区域不会与float box重叠。<br>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。<br>6.计算BFC的高度时，浮动元素也参与计算。</p>
-<h1 id="哪些元素会生成BFC："><a href="#哪些元素会生成BFC：" class="headerlink" title="哪些元素会生成BFC："></a>哪些元素会生成BFC：</h1><p>1.float属性不为none<br>2.position为absolute或fixed<br>3.display为inline-block，table-cell，table-caption，flex，inline-flex<br>4.overflow不为visible</p>
-<h1 id="作用以及原理"><a href="#作用以及原理" class="headerlink" title="作用以及原理"></a>作用以及原理</h1><p>1.自适应两栏布局<br>规则：3,4<br>2.清除内部浮动<br>规则：6<br>3.防止垂直margin重叠<br>规则：2</p>
+        <p>在js里面，想要判断一些简单数据的类型，可以使用typeof。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let str = &quot;123&quot;;</span><br><span class="line">let num = 123;</span><br><span class="line">let bool = true;</span><br><span class="line">let unde;</span><br><span class="line">let obj = null;</span><br><span class="line">function fn () &#123;&#125;;</span><br><span class="line"></span><br><span class="line">console.log(str); //string</span><br><span class="line">console.log(num); //number</span><br><span class="line">console.log(bool); //boolean</span><br><span class="line">console.log(unde); //undefined</span><br><span class="line">console.log(fn); //function</span><br><span class="line">console.log(obj); //object</span><br></pre></td></tr></table></figure>
+<p>我们知道在js里面五种基本类型是string,number,null,undefined,boolean,一种复杂类型是object。</p>
+<p>利用typeof我们判断出大部分的类型。为什么说大部分呢？因为利用typeof来判断null的类型的时候，我们获取到的不是null，而是object，这点请各位同学注意。除了基本类型和复杂类型，利用typeof还可以判断变量是否是一个函数。</p>
+<p>善用typeof，我们可以解决很多类型检测问题。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/23/BFC-块级格式化上下文/" data-id="cjntp7w5k0000gsv52ev3a8ze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/js-typeof/" data-id="cjntp7w7s0002gsv5pebn2y3m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -102,19 +104,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/10/27/js垃圾回收机制/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          js垃圾回收机制
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/23/防抖和节流/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/10/28/跨域/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">防抖和节流</div>
+      <div class="article-nav-title">跨域</div>
     </a>
   
 </nav>
